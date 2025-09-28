@@ -1,0 +1,31 @@
+// create a resource with module,service,specs etc
+nest g resource resources/<name>
+
+# Generate migration file
+npx typeorm-ts-node-commonjs migration:generate src/database/migrations/Migration -d src/database/data-source.ts
+
+# Run all pending migrations
+npx typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts
+
+# Run seed file
+npm run db:seed 
+
+
+
+______________________
+
+# Revert the migration
+npx typeorm-ts-node-commonjs migration:revert -d src/database/data-source.ts
+
+# Then run it again
+npx typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts
+
+_______________________
+# Tests
+
+npx jest -t "test_name"
+npx jest -t "test_name1 | test_name2"
+
+_________________________________________________________________________________________
+# Custom create resource
+npm run create-service "users" "test-service"  
