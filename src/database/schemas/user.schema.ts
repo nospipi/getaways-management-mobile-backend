@@ -77,7 +77,7 @@ export class User {
   @Prop() isModerator: boolean;
   @Prop() onOfficeDuty: boolean;
   @Prop() isEmergencyContact: boolean;
-  @Prop() permissions: any;
+  @Prop({ type: Object }) permissions: any;
   @Prop() shouldReceiveAnnouncements: boolean;
 
   @Prop() amountOfWorkDaysPerWeek: number;

@@ -4,14 +4,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { DatabaseService } from './database/schemas/database.service';
+import { DatabaseService } from './database/database.service';
 import { ClerkClientProvider } from 'src/common/providers/clerk-client.provider';
 import { AuthModule } from './auth/auth.module';
 import { ClerkAuthGuard } from './guards/clerk-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { BugReportsModule } from './resources/bug-reports/bug-reports.module';
-
-//---------------------------------------------------------------------------
+import { UsersModule } from './resources/users/users.module';
 
 @Module({
   imports: [
@@ -28,6 +27,7 @@ import { BugReportsModule } from './resources/bug-reports/bug-reports.module';
       inject: [ConfigService],
     }),
     BugReportsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [
